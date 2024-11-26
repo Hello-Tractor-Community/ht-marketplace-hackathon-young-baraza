@@ -48,12 +48,41 @@ Please organize and complete the following deliverables within this repository:
 
 ### 5. **Project Report**
 Complete this section in a separate ReadMe file `report.md`:
-- **Project Name**: [Insert your project name]
-- **Team Members**: [List all members and their GitHub handles]
-- **Tech Stack**: [Mention all technologies used]
-- **Key Features**: [Briefly list the implemented features]
-- **Challenges**: [Summarize major challenges faced and how they were solved]
-- **Lessons Learned**: [Highlight key takeaways from the project]
+- **Project Name**: Tractorapp
+- **Team Members**: @ogaedith
+- **Tech Stack**: backend database and apis done with ruby on rails and postgresql   frontend done with flutter
+- **Key Features**:
+
+  
+  devise_for :users, controllers: {
+                       sessions: "users/sessions",
+                       registrations: "users/registrations",
+                     }
+
+  # Get current user
+  get "/current_user", to: "currents#index"
+  
+  namespace :api do
+    namespace :v1 do
+      resources :profiles, only: [:index]
+    end
+    
+    resources :crops, only: [:index, :show, :create, :update, :destroy]    
+    resources :products, only: [:index, :show, :create, :update, :destroy]
+    resources :cart_items, only: [:index, :show, :create, :update, :destroy]
+    resources :issues, only: [:index, :show, :create, :update, :destroy]
+    resources :safety_procedures, only: [:index, :show, :create, :update, :destroy] do
+      # Admin-specific actions for approving and rejecting safety procedures
+      member do
+        post :approve
+        post :reject
+      end
+    end
+  end
+
+end
+- **Challenges**: i had issues with server side slow to respond
+- **Lessons Learned**: Ecommerce markrtplacr 
 
 ---
 
