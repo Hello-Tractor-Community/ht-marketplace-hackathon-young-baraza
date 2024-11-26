@@ -65,9 +65,7 @@ Complete this section in a separate ReadMe file `report.md`:
   namespace :api do
     namespace :v1 do
       resources :profiles, only: [:index]
-    end
-    
-    resources :crops, only: [:index, :show, :create, :update, :destroy]    
+    end   
     resources :products, only: [:index, :show, :create, :update, :destroy]
     resources :cart_items, only: [:index, :show, :create, :update, :destroy]
     resources :issues, only: [:index, :show, :create, :update, :destroy]
